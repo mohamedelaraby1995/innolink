@@ -17,9 +17,34 @@ class Listing extends Model
         //otherwise return false
 
         if($filters['tag'] ?? false){
-            $query->where('tags','like', '%' .request('tag'). '%' );
+            $this->findTags($query);
+        }
+
+        if($filters['search'] ?? false){
+            $this->findBySearch($query);
         }
 
 
+
+
     }
+
+
+    // Find the tag
+    public function findTags($query){
+        return $query->where('tags','like', '%' .request('tag'). '%' );
+    }
+
+
+    public function    findBySearch($query){
+        return $query->where('title','like', '%' .request('search'). '%' )
+        ->orWhere('description','like', '%' .request('search'). '%')
+        ->orWhere('tags','like', '%' .request('search'). '%')
+        ->orWhere('location','like', '%' .request('search'). '%')
+        ->orWhere('company_name','like', '%' .request('search'). '%')
+        ->orWhere('email','like', '%' .request('search'). '%');
+    }
+
+    //Search feature
+
 }

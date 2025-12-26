@@ -28,7 +28,7 @@ class ListingController extends Controller
 
 // Find the latest Listing
 public function  filterByTags(){
-    return Listing::latest()->filter(request(['tag']))->get();
+    return Listing::latest()->filter(request(['tag','search']))->get();
 }
 
 
