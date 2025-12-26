@@ -1,10 +1,6 @@
 
 
-@extends('layouts')
-
-
-
-@section('content')
+<x-layouts>
 @include('partial/_search')
 
  <a href="/" class="inline-block text-black ml-4 mb-4"
@@ -61,4 +57,4 @@
                     </div>
                </x-card>
             </div>
-@endsection
+</x-layouts>

@@ -4,7 +4,7 @@
     <body class="mb-48">
        @include('partial/_nav')
         <main>
-    @yield('content')
+  {{$slot}}
         </main>
 
 
