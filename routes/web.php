@@ -16,10 +16,20 @@ Route::get('/', function () {
 
 
 //Single Listing
-Route::get('/listing/{id}',function($id){
+Route::get('/listing/{listing}',function(Listing $listing){
+    //check for the listing exist
+    //otherwise abort 404
+
+//     $listing = Listing::find($id);
+
+//     if($listing){
 return view('listing',[
-    'listing' => Listing::find($id),
+    'listing' => $listing,
 ]);
+//     } else {
+//         abort(404);
+//     }
+
 });
 
 
